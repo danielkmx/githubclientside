@@ -6,20 +6,26 @@ import { MatTableModule,MatSortModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
-
+import {UserService} from './user.service';
 
 
 @NgModule({
   declarations: [
     AppComponent
 ,
-    HomeComponent,
+    HomeComponent
+,
     TableComponent
 ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatTableModule,
+    MatSortModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
