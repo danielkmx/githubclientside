@@ -1,0 +1,48 @@
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Usuário" [formControl]="buscaUsuarioFormControl">
+
+    </mat-form-field>
+  </form>
+<div>
+  <mat-table [dataSource]="dataSource" matSort matSortActive="stargazers_count" matSortDirection="desc">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let repos">{{repos.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="stargazers_count">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Estrelas</mat-header-cell>
+      <mat-cell *matCellDef="let repos" (click)="teste(repos.name)">{{repos.stargazers_count}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="github">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Estrelas</mat-header-cell>
+      <mat-cell *matCellDef="let repos">
+        <a href="{{repos.html_url}}"><i class="fa fa-github" aria-hidden="true"></i></a></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+  </mat-table>
+</div>
+<!-- <div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.email}}</mat-cell>
+
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.username}}</mat-cell>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+      <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+    </ng-container>
+
+  </mat-table>
+
+</div> -->
